@@ -37,7 +37,7 @@ class DocenteController extends Controller {
 
 	public function formulariod()
 	{
-		$docentes = App\Docente::paginate(1);
+		$docentes = App\Docente::paginate(5);
 		return view('docente',compact('docentes'));
 	}
 	public function crear(Request $request)
