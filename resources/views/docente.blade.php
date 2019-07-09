@@ -52,6 +52,9 @@
       @endforeach()
     </tbody>
   </table>
+
+  {{ $docentes->links() }}
+
   @if (session('mensaje'))
     <div class="alert alert-success">
       {{session('mensaje')}}
