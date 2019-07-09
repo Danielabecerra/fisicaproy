@@ -136,8 +136,9 @@
                                 <li class="active">
                                     <a href="{{ route('materiaformulario') }}"><i class="fa fa-circle-o"></i>Programar Materias</a>
                                     <a href="{{ route('docenteformulario') }}"><i class="fa fa-circle-o"></i>Programar Docentes</a>
-                                    <a href="javascript:void(0);" onclick="cargarformulario(1);" >
-                                    <i class="fa fa-circle-o"></i>Programar Horario</a>
+                                    <a href="{{ route('horarioformulario') }}"><i class="fa fa-circle-o"></i>Programar Horario</a>
+                                    <!--<a href="javascript:void(0);" onclick="cargarformulario(1);" >
+                                    <i class="fa fa-circle-o"></i>Programar Horario</a>-->
                                 </li>
                             </ul>
                         </li>

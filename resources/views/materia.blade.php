@@ -8,7 +8,8 @@
         <th scope="col">#id</th>
         <th scope="col">Materia_Sigla</th>
         <th scope="col">Carrera</th>
-        <th scope="col">Acciones</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -23,14 +24,13 @@
           <td>{{$item->carrera}}</td>
           <td>
             <a href="{{route('materias.editar',$item)}}" class = "btn btn-warning btn-sm">Editar</a>
-
+          </td>
+          <td>
             <form action="{{route('materias.eliminar',$item)}}" method="POST" class="d-inline">
               @method('DELETE')
               @csrf
               <button class="btn btn-danger btn.sn" type="submit">Eliminar</button>
-
             </form>
-
           </td>
         </tr>
       @endforeach()
