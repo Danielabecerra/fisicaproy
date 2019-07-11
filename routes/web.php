@@ -1,19 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-
-
-
+//login
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', ['as' =>'login', 'uses' => 'Auth\AuthController@postLogin']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
@@ -25,7 +12,6 @@ Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
 //rutas
-
 Route::get('form_nuevo_usuario', 'FormulariosController@form_nuevo_usuario');
 Route::post('agregar_nuevo_usuario', 'UsuariosController@agregar_nuevo_usuario');
 
@@ -48,9 +34,19 @@ Route::put('formulariom/editar/{id}','MateriaController@update')->name('materias
 Route::delete('formulariom/eliminar/{id}','MateriaController@eliminar')->name('materias.eliminar');
 
 //ruta de horario
-Route::get('formularioh', 'HorarioController@formularioh')->name('horarioformulario');
-Route::post('formularioh', 'HorarioController@crear')->name('horarios.crear');
-Route::get('formularioh/{id}', 'HorarioController@detalle')->name('horarios.detalle');
-Route::get('formularioh/editar/{id}','HorarioController@editar')->name('horarios.editar');
-Route::put('formularioh/editar/{id}','HorarioController@update')->name('horarios.update');
-Route::delete('formularioh/eliminar/{id}','HorarioController@eliminar')->name('horarios.eliminar');
+Route::get('formulariohora', 'HorarioController@formularioh')->name('horarioformulario');
+Route::post('formulariohora', 'HorarioController@crear')->name('horarios.crear');
+Route::get('formulariohora/{id}', 'HorarioController@detalle')->name('horarios.detalle');
+Route::get('formulariohora/editar/{id}','HorarioController@editar')->name('horarios.editar');
+Route::put('formulariohora/editar/{id}','HorarioController@update')->name('horarios.update');
+Route::delete('formulariohora/eliminar/{id}','HorarioController@eliminar')->name('horarios.eliminar');
+
+
+//programaciones
+Route::get('programacion', 'ProgramacionController@formulariop');
+Route::get('programacion', 'ProgramacionController@materiatodo')->name('programarformulario');
+Route::post('programacion', 'ProgramacionController@crear')->name('programaciones.crear');
+Route::get('editar/{id}', 'ProgramacionController@editar')->name('programacioneseditar');
+Route::put('editar/{id}', 'ProgramacionController@update')->name('programaciones.update');
+Route::delete('eliminar/{id}', 'ProgramacionController@eliminar')->name('programaciones.eliminar');
+

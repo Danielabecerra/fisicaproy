@@ -6,19 +6,7 @@ use Illuminate\Http\Request;
 use App;
 
 class HorarioController extends Controller{
-    
-    /*
-	|--------------------------------------------------------------------------
-	| Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| This controller renders your application's "dashboard" for users that
-	| are authenticated. Of course, you are free to change or remove the
-	| controller as you wish. It is just here to get your app started!
-	|
-	*/
-
-	/**
+   	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
@@ -28,19 +16,15 @@ class HorarioController extends Controller{
 		$this->middleware('auth');
     }
 
-    //detalle
-    public function detalle($id)
-    {
-        $materia= App\Horario::findOrFail($id);
-        return view('horarios.detalle', compact('horario'));
-    }
+
+    
     
 
     //principal
 
     public function formularioh()
     {
-        $materias = App\Horario::all();
+        $horarios = App\Horario::all();
         return view('horario',compact('horarios'));
     }
 
@@ -64,8 +48,17 @@ class HorarioController extends Controller{
         return back()->with('mensaje','SE REGISTRO CORRECTAMENTE');
         
     }
-
-    //editar horario
+    
+    
+    //detalle
+        public function detalle($id)
+        {
+            $horario= App\Horario::findOrFail($id);
+            return view('horarios.detalle', compact('horario'));
+        }
+    
+    
+        //editar horario
     public function editar($id)
     {
         $horario=App\Horario::findOrFail($id);
